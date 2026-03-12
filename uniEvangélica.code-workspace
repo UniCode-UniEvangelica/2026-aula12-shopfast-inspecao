@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"chat.tools.terminal.autoApprove": {
+			"\"/Users/gomescarlosjr/Documents/98.": true,
+			"git ls-files": true
+		}
+	}
+}
