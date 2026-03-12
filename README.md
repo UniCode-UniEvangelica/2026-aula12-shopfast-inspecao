@@ -1,104 +1,54 @@
-# 🧪 ShopFast — Engenharia de Testes (Aula 11)
+# ShopFast — Repositório de Inspeção | Aula 12
 
-> **Missão QA Automation:** O sistema foi a produção com bugs. Seu trabalho é construir a malha de testes que impedirá que isso aconteça novamente.
+## Objetivo
 
----
+Este repositório contém código Python **propositalmente defeituoso** do sistema ShopFast. O objetivo é praticar **inspeção estática** — análise de código sem executar, sem fazer commits, sem abrir pull requests.
 
-## 📁 Estrutura do Projeto
+Os alunos devem identificar e rastrear **todos os defeitos** a uma das 4 categorias do checklist da aula:
 
-```
-.
-├── app/
-│   ├── pagamentos.py       # Funções de pagamento (desconto, juros, validação, reembolso)
-│   └── carrinho_db.py      # Módulo de carrinho com persistência SQLite
-├── tests/
-│   ├── test_pagamentos.py        # Testes Unitários (Atividade Principal)
-│   └── test_carrinho_integracao.py  # Testes de Integração — Lab Extra (SQLite :memory:)
-└── .github/
-    ├── workflows/
-    │   ├── run-tests.yml      # CI: executa pytest a cada PR
-    │   └── validate-pr.yml   # CI: valida padrão de branch e título do PR
-    └── PULL_REQUEST_TEMPLATE.md
-```
+1. **Nomenclatura** — nomes vagos, variáveis sem significado
+2. **Testabilidade** — dificuldades para criar testes
+3. **Segurança** — exposição de dados sensíveis, hardcoding de chaves
+4. **Tratamento de Erros** — falhas silenciosas, exceções genéricas
 
----
-
-## ⚙️ Como executar os testes
-
-### 1. Clone e configure o ambiente
+## Clone do Repositório
 
 ```bash
-git clone https://github.com/UniCode-UniEvangelica/2026-2-unievangelica-payments.git
-cd 2026-2-unievangelica-payments
-pip install pytest
+git clone https://github.com/UniCode-UniEvangelica/2026-aula12-shopfast-inspecao.git
+cd 2026-aula12-shopfast-inspecao
 ```
 
-### 2. Testes Unitários (Atividade Principal — `pratica11/`)
+## Estrutura de Arquivos
 
-```bash
-python -m pytest tests/test_pagamentos.py -v
+```
+app/
+  ├── pagamentos_v2.py      # Módulo de pagamentos com defeitos
+  ├── estoque.py            # Módulo de estoque com defeitos
+  └── relatorios.py         # Módulo de relatórios com defeitos
+tests/
+  └── test_estoque.py       # Testes incompletos propositalmente
 ```
 
-> ⚠️ **Atenção:** Um teste vai falhar — isso é intencional. Sua missão é identificar e corrigir o bug.
+## ⚠️ AVISO IMPORTANTE
 
-### 3. Testes de Integração (Lab Extra — `lab11-extra/`)
+**Este repositório é SOMENTE LEITURA para os alunos.**
 
-```bash
-python -m pytest tests/test_carrinho_integracao.py -v
-```
+- ❌ Não faça commits
+- ❌ Não abra pull requests
+- ❌ Não modifique nenhum arquivo
 
-> Os testes de integração usam um banco **SQLite em memória** (`:memory:`). Nenhuma instalação adicional é necessária.
+Sua tarefa é **analisar** o código, não alterá-lo.
 
-### 4. Rodar tudo junto
+## Como Usar Esta Atividade
 
-```bash
-python -m pytest -v
-```
+1. Clone o repositório
+2. Abra os arquivos em `app/` e `tests/`
+3. Identifique **cada defeito** no código
+4. Classifique cada defeito em uma das 4 categorias
+5. Documente suas descobertas no formulário de atividade
 
----
+## Referência
 
-## ⚠️ O Bug Histórico (Incident Report #8924)
-
-Se você abrir `tests/test_pagamentos.py`, vai encontrar um *Déjà vu* do Ciclo 01: a mesma falha de cálculo de **Juros de Atraso** continua assombrando a branch `main`.
-
-**Sua missão no Ciclo 02** vai além de "fazer o teste passar":
-
-| Técnica | Aplicação |
-|:--|:--|
-| 🔀 **Branch Coverage** | Cobrir todos os caminhos de `if/else` |
-| 📏 **Boundary Value** | Testar os limites exatos dos valores |
-| 🤖 **Mock/Stub** | Isolar dependências externas |
-| 🗄️ **Integração Persistida** | Testar com SQLite real em memória |
-
----
-
-## 📤 Como entregar (Pull Request)
-
-1. Crie sua branch com o padrão obrigatório:
-   ```bash
-   git checkout -b pratica11/SeuNome-SuaMatricula
-   ```
-
-2. Implemente as correções e os testes pendentes (`TODO`).
-
-3. Abra um Pull Request para a branch `main` com o título contendo `[Aula 11]`.
-
-4. Preencha o template do PR completamente — PRs incompletos não são avaliados.
-
-> **Lab Extra:** Para o laboratório de integração, use o prefixo `lab11-extra/SeuNome-SuaMatricula`.
-
----
-
-## 🏆 Critérios de Avaliação (1,0 pt)
-
-| Critério | Peso |
-|:--|:--|
-| Bug do `test_aplicar_juros_atraso` corrigido (valor = 105.0) | 0,25 pt |
-| Estrutura AAA explícita (`# Arrange`, `# Act`, `# Assert`) | 0,25 pt |
-| `test_processar_reembolso` com casos de Valor Limite | 0,25 pt |
-| Branch `pratica11/Nome-Matricula` + CI verde | 0,25 pt |
-| **Total** | **1,0 pt** |
-
----
-
-*Esp. Carlos Roberto Gomes Júnior | Teste de Software — Ciclo 02 | UniEvangelica*
+**Disciplina:** Teste de Software | 2026.1  
+**Professor:** Carlos Roberto Gomes Júnior  
+**Universidade:** Universidade Evangélica de Brasília
