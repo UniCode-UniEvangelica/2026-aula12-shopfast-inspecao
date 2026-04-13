@@ -24,6 +24,15 @@ Atividade de testes unitários para o sistema de pagamentos.
    python -m pytest tests/test_pagamentos.py -v
    ```
 
-## Atividade
+## ⚠️ O Retorno ao Ciclo 01 (Flashback)
 
-Implemente todos os testes em `tests/test_pagamentos.py` conforme os TODOs indicados. Você deve escrever tudo do zero.
+Se você observar o arquivo `tests/test_pagamentos.py`, vai perceber um *Déjà vu*. A mesma falha de cálculo matemático do "Juros de Atraso" (que vimos no Ciclo 01) continua assombrando a ramificação `main` deste repositório! 
+
+**Sua missão no Ciclo 02:** 
+Não basta apenas "fazer o teste passar" como fizemos de forma iniciante. Agora você aplicará o rigor da **Engenharia de Teste Unitário**:
+- Cobertura de Decisão Lógica (Branch Coverage)
+- Análise de Valor Limite (Boundary Value)
+- Isolamento contra serviços externos (Mock/Stub)
+- Testes de Integração Persistida (SQLite em Memória)
+
+Abra o arquivo de testes, extermine esse bug histórico e construa a malha de testes impenetrável da Aula 11!
